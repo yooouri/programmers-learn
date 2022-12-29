@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ing... 
+      function solution(participant, completion) {
+        var answer = "";
+
+        for (let i = 0; i < participant.length; i++) {
+          if (!completion.includes(participant[i])) {
+            answer = participant[i];
+            break;
+          }
+        }
+        if (answer == "") {
+          for (let i = 0; i < participant.length; i++) {
+            if (participant.includes(participant[i])) {
+              answer = participant[i];
+              break;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      let tmp = ["leo", "kiki", "eden"];
+      let tmp_1 = ["eden", "kiki"];
+
+      function solution2(participant, completion) {
+        /*
+    for(let i in participant) {
+        if(completion.includes(participant[i]) == false) return participant[i];
+        completion.splice(completion.indexOf(participant[i]), 1);
+    }
+    */
+
+        participant.sort();
+        completion.sort();
+
+        for (let i in participant) {
+          if (participant[i] !== completion[i]) return participant[i];
+        }
+      }
+
+      //var solution=(_,$)=>_.find(_=>!$[_]--,$.map(_=>$[_]=($[_]|0)+1))
+
+      let a = solution(tmp, tmp_1);
+      //   let b = solution2(tmpArr1);
+      console.log("답은:", a);
+      //   console.log("답은:", b);
+    </script>
+  </body>
+</html>

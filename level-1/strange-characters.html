@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //ing..
+      function solution(s='aa') {
+        var answer = "";
+        let strArr = s.split(' ');
+        for (let i = 0; i < strArr.length; i++) {
+          console.log('strArr[i]', strArr[i]);
+    
+
+          [...strArr[i]].forEach((char,j) => {
+            console.log('char',char)
+            if(char[j] % 2 == 0) char = char.toLocaleUpperCase();
+          });
+
+        }
+  
+        console.log('strArr',strArr)
+        return answer;
+      }
+
+      let tmp = 'try hello world'; //TrY HeLlO WoRlD
+      let tmp_1 = [5, 5];
+
+      function solution2(arr) {}
+
+      let a = solution(tmp);
+      //   let b = solution2(tmpArr1);
+      console.log("답은:", a);
+      //   console.log("답은:", b);
+    </script>
+  </body>
+</html>
