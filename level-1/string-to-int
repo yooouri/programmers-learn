@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+   function solution(s) {
+    let arr = ['zero','one','two','three','four','five','six','seven','eight','nine']
+    var tmp = s;
+       for(let i=0; i<arr.length; i++){
+            tmp = tmp.replaceAll(arr[i], i)
+       }
+
+    
+    return tmp*1;
+}
+    
+    </script>
+  </body>
+</html>
