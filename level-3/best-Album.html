@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(genres, plays) {
+        var answer = [];
+        var obj = {};
+        var gBest = new Map(); //장르별 재생횟수
+        for (let i = 0; i < genres.length; i++) {
+          if (genres[i] in obj) {
+            // gBest[genres[i]] += plays[i]
+            gBest.set(genres[i], gBest.get(genres[i]) + plays[i]);
+            obj[genres[i]].push([i, plays[i]]);
+          } else {
+            // gBest[genres[i]] = plays[i]
+            gBest.set(genres[i], plays[i]);
+            obj[genres[i]] = [[i, plays[i]]];
+          }
+        }
+        // console.log(gBest)
+        //console.log(obj)
+
+        const gBestArray = [...gBest];
+        let gOrder = gBestArray.sort((a, b) => b[1] - a[1]);
+        //console.log('gOrder',gOrder)
+
+        for (let i = 0; i < gOrder.length; i++) {
+          let key = gOrder[i][0];
+          let gInOrder = obj[key].sort((a, b) => b[1] - a[1]);
+          // console.log('gInOrder',gInOrder)
+          for (let j = 0; j < gInOrder.length; j++) {
+            if (j == 2) break;
+            answer.push(gInOrder[j][0]);
+          }
+        }
+        return answer;
+      }
+    </script>
+  </body>
+</html>
