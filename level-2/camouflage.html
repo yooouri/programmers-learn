@@ -8,6 +8,35 @@
   </head>
   <body>
     <script>
+      let clothes = [
+        ["yellow_hat", "headgear"],
+        ["blue_sunglasses", "eyewear"],
+        ["green_turban", "headgear"],
+      ];
+      function solution_0(clothes) {
+        //console.log(clothes)
+        // console.log(clothes.length)
+        var answer = 1;
+        let sortArr = {}; // {종류:[],종류2:[]}
+        for (let i = 0; i < clothes.length; i++) {
+          if (clothes[i][1] in sortArr) {
+            //종류가 이미 있다면
+            sortArr[clothes[i][1]].push([clothes[i][0]]);
+          } else {
+            sortArr[clothes[i][1]] = [clothes[i][0]];
+          }
+        }
+
+        // let col = new Set();
+        for (const property in sortArr) {
+          // console.log(`${property}: ${sortArr[property]}`);
+          // sortArr[property].length
+          answer *= sortArr[property].length + 1;
+        }
+
+        return answer - 1;
+      }
+
       function solution(clothes) {
         const map = new Map();
         let cnt = 1;
@@ -20,6 +49,19 @@
         for (let x of map.values()) cnt *= x + 1;
         return cnt - 1;
       }
+
+      function solution2(clothes) {
+        return (
+          Object.values(
+            clothes.reduce((obj, t) => {
+              obj[t[1]] = obj[t[1]] ? obj[t[1]] + 1 : 1;
+              return obj;
+            }, {})
+          ).reduce((a, b) => a * (b + 1), 1) - 1
+        );
+      }
+      //let aa = solution2(clothes);
+      //console.log("답은:", aa);
     </script>
   </body>
 </html>
