@@ -1,6 +1,6 @@
 import Foundation
 
-//ing... 40/100
+
  func subStringToInt(str:String, start:Int, end:Int) -> Int {
       let startIndex = str.index(str.startIndex, offsetBy: start)
       let endIndex = str.index(str.startIndex, offsetBy: end)
@@ -31,11 +31,18 @@ func solution(_ today:String, _ terms:[String], _ privacies:[String]) -> [Int] {
         let tMon = subStringToInt(str: today, start: 5, end: 7)
         let tDay = subStringToInt(str: today, start: 8, end: 10)
      
-        if( (mon + addMon) > 12 ) {
-            year += 1
-            mon = mon+addMon-12
+      if( (mon+addMon)>12 ) {
+            year+=(mon+addMon)/12
+            if( (mon+addMon)%12 != 0 ){
+                mon=(mon+addMon)%12  
+            }else{
+                year-=1
+                mon=12
+            }
+        }else if ( (mon+addMon)==12 ){
+            mon=12
         }else{
-            mon = mon+addMon
+            mon=mon+addMon
         }
         
         //print(tDay, day)
