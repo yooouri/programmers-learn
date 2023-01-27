@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 11.00/100.00
+      function solution(weights) {
+        var answer = 0;
+
+        let tmp = [];
+        weights.sort((a, b) => a - b);
+        for (let i = 0; i < weights.length; i++) {
+          if (tmp.find((e) => e == weights[i])) continue;
+          for (let j = 0; j < weights.length; j++) {
+            if (weights[j] == weights[i] && i != j) {
+              tmp.push(weights[j]);
+              answer += 1;
+              break;
+            } else if (
+              weights[j] == weights[i] * 2 ||
+              weights[j] * 2 == weights[i] ||
+              weights[j] == (weights[i] * 3) / 2 ||
+              weights[j] == (weights[i] * 4) / 3 ||
+              (weights[j] * 3) / 2 == weights[i] ||
+              (weights[j] * 4) / 3 == weights[i]
+            ) {
+              // tmp.push(weights[j])
+              tmp.push(weights[i]);
+              answer += 1;
+              break;
+            }
+          }
+        }
+
+        return answer;
+      }
+    </script>
+  </body>
+</html>
