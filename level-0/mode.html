@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(array) {
+        var answer = [-1, -1];
+        var tmp = {};
+        for (let i = 0; i < array.length; i++) {
+          tmp[array[i]] = tmp[array[i]] + 1 || 1;
+        }
+        for (const [key, value] of Object.entries(tmp)) {
+          if (value > answer[1]) {
+            answer[0] = key * 1;
+            answer[1] = value;
+          } else if (answer[1] == value) {
+            answer[0] = -1;
+          }
+        }
+
+        return answer[0];
+      }
+    </script>
+  </body>
+</html>
