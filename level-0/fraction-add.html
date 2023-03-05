@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(numer1, denom1, numer2, denom2) {
+        let a = numer1 * denom2 + numer2 * denom1;
+        let b = denom1 * denom2;
+
+        const gcd = (a, b) => (a % b == 0 ? b : gcd(b, a % b));
+
+        return [a / gcd(a, b), b / gcd(a, b)];
+      }
+    </script>
+  </body>
+</html>
