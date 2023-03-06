@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(numbers) {
+        let tmp = numbers.sort((a, b) => a - b);
+        var answer = -100000000;
+
+        for (let i = 0; i < tmp.length; i++) {
+          if (i == tmp.length - 1) break;
+          let max = tmp[i] * tmp[i + 1];
+          if (max > answer) answer = max;
+        }
+        return answer;
+      }
+    </script>
+  </body>
+</html>
