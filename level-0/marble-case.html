@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(balls, share) {
+        var answer = 0;
+
+        const factorial = (n) => {
+          let total = 1;
+          while (n > 1) {
+            total *= n;
+            --n;
+          }
+          return total;
+        };
+
+        var a = factorial(balls);
+        var b = factorial(share);
+        var c = factorial(balls - share);
+        console.log(a, b, c);
+        return Math.round(a / (c * b));
+      }
+    </script>
+  </body>
+</html>
