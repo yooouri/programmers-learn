@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(numbers, k) {
+        var answer = 2 * k - 2;
+
+        if (numbers.length - 1 < answer) {
+          let a = Math.floor(answer / numbers.length);
+          answer = answer - numbers.length * a;
+        }
+
+        return numbers[answer];
+      }
+      // 다른 사람 풀이
+      //(k * 2 - 1) % numbers.length - 1
+    </script>
+  </body>
+</html>
