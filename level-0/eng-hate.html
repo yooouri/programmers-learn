@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(numbers) {
+        var answer = numbers;
+        var numArr = [
+          "zero",
+          "one",
+          "two",
+          "three",
+          "four",
+          "five",
+          "six",
+          "seven",
+          "eight",
+          "nine",
+        ];
+        for (let i = 0; i < numArr.length; i++) {
+          answer = answer.replaceAll(numArr[i], i);
+        }
+
+        return answer * 1;
+      }
+
+      function solution(numbers) {
+        const obj = {
+          zero: 0,
+          one: 1,
+          two: 2,
+          three: 3,
+          four: 4,
+          five: 5,
+          six: 6,
+          seven: 7,
+          eight: 8,
+          nine: 9,
+        };
+
+        const num = numbers.replace(
+          /zero|one|two|three|four|five|six|seven|eight|nine/g,
+          (v) => {
+            return obj[v];
+          }
+        );
+
+        return Number(num);
+      }
+    </script>
+  </body>
+</html>
