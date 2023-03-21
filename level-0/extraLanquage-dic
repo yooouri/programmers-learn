@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(spell, dic) {
+        var answer = 2;
+
+        const regex = new RegExp(`[${spell}]`, "g");
+        const sp = JSON.stringify(spell.sort());
+
+        for (let i = 0; i < dic.length; i++) {
+          if (dic[i].match(regex)) {
+            var tmp = JSON.stringify(dic[i].match(regex).sort());
+            if (tmp == sp) answer = 1;
+          }
+        }
+        return answer;
+      }
+    </script>
+  </body>
+</html>
