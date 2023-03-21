@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(sides) {
+        var answer = 0;
+        var a = sides.sort((a, b) => a - b)[0];
+        var b = sides.sort((a, b) => a - b)[1];
+
+        var tmp = b - a + 1;
+        var cnt = 0;
+        while (tmp <= b) {
+          cnt++;
+          tmp++;
+        }
+
+        for (let i = b + 1; i < a + b; i++) {
+          answer++;
+        }
+
+        return answer + cnt;
+      }
+    </script>
+  </body>
+</html>
