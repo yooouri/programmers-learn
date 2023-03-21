@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(polynomial) {
+        var answer = "";
+        var x = polynomial
+          .split(" ")
+          .filter((e) => e.includes("x"))
+          .map((e) => {
+            if (e.length == 1) return 1;
+            else return e.replace("x", "") * 1;
+          })
+          .reduce((a, c) => a + c, 0);
+        var s = polynomial
+          .split(" ")
+          .filter((e) => !isNaN(e))
+          .reduce((a, c) => a + c * 1, 0);
+
+        console.log(x, s);
+        if (x && !s) {
+          if (x == 1) answer = "x";
+          else answer = x + "x";
+        } else if (x && s) {
+          if (x == 1) answer = "x + " + s;
+          else answer = x + "x + " + s;
+        } else if (s) {
+          answer = s + "";
+        } else answer = "0";
+
+        return answer;
+      }
+    </script>
+  </body>
+</html>
