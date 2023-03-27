@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(board) {
+        var answer = 0;
+
+        var dx = [-1, -1, -1, 0, 0, 1, 1, 1];
+        var dy = [-1, 0, 1, -1, 1, -1, 0, 1];
+        // var danger = board.slice();
+        var danger = JSON.parse(JSON.stringify(board));
+
+        for (let x = 0; x < board.length; x++) {
+          for (let y = 0; y < board.length; y++) {
+            if (board[x][y] === 0) continue;
+            for (let i = 0; i < dx.length; i++) {
+              let nx = x + dx[i];
+              let ny = y + dy[i];
+              // console.log('(',x,',',y,')',nx,ny)
+              if (nx < 0 || nx >= board.length || ny < 0 || ny >= board.length)
+                continue;
+              danger[nx][ny] = 1;
+            }
+          }
+        }
+
+        //console.log(danger)
+        return danger.flat().filter((e) => e == 0).length;
+      }
+    </script>
+  </body>
+</html>
