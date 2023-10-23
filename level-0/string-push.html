@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function solution(a, b) {
+            var answer = a == b ? 0 : -1;
+            for (let i = 0; i < a.length - 1; i++) {
+                a = a.substring(a.length - 1) + a.slice(0, a.length - 1)
+                if (a == b) {
+                    answer = i + 1
+                    break;
+                }
+            }
+
+            return answer;
+        }
+    </script>
+</body>
+
+</html>
