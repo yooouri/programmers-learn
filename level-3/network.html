@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, computers) {
+        let answer = 0;
+
+        let visits = Array(n).fill(false);
+
+        for (let i = 0; i < n; i++) {
+          if (!visits[i]) {
+            answer++;
+            isVisit(i);
+          }
+        }
+
+        function isVisit(index) {
+          visits[index] = true;
+          const computer = computers[index];
+
+          for (let i = 0; i < n; i++) {
+            const isConnect = computer[i] === 1 ? true : false;
+            if (!visits[i] && isConnect) {
+              isVisit(i);
+            }
+          }
+        }
+
+        return answer;
+      }
+    </script>
+  </body>
+</html>
